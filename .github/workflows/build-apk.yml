@@ -27,6 +27,7 @@ jobs:
       - run: pnpm run build
       - run: pnpm exec cap add android
       - run: pnpm exec cap sync android
+      - run: node scripts/prepare-android-lockscreen.mjs
       - run: cd android && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
