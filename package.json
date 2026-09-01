@@ -2,5 +2,16 @@
   "name": "bannap",
   "version": "0.1.0",
   "private": true,
-  "scripts": { "build": "node build.mjs", "start": "node server.mjs" }
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.mjs",
+    "android:sync": "pnpm run build && cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/core": "^8.5.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.0"
+  }
 }
