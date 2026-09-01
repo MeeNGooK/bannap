@@ -1,0 +1,25 @@
+name: Update bestseller catalog
+
+on:
+  schedule:
+    - cron: '15 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/fetch-aladin-catalog.mjs
+        env:
+          ALADIN_TTB_KEY: ${{ secrets.ALADIN_TTB_KEY }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update bestseller catalog'
+          file_pattern: public/data/catalog.json
