@@ -4,7 +4,9 @@ const key = process.env.ALADIN_TTB_KEY;
 if (!key) throw new Error('ALADIN_TTB_KEY is required');
 
 const classics = JSON.parse(readFileSync('scripts/korean-classics.json', 'utf8'));
+const broadQueries = JSON.parse(readFileSync('scripts/korean-book-queries.json', 'utf8'));
 const updatedAt = new Date().toISOString();
+const catalogLimit = 2000;
 
 async function fetchAladin(endpoint, params) {
   const url = new URL(`https://www.aladin.co.kr/ttb/api/${endpoint}.aspx`);
@@ -69,6 +71,22 @@ for (const classic of classics) {
   }
 }
 
+const broadMatches = [];
+for (const query of broadQueries) {
+  try {
+    const results = await fetchAladin('ItemSearch', {
+      Query: query,
+      QueryType: 'Keyword',
+      SearchTarget: 'Book',
+      MaxResults: '50',
+      start: '1',
+    });
+    broadMatches.push(...results.map((item) => toBook(item, `Aladin search: ${query}`)));
+  } catch (error) {
+    console.warn(`Could not collect ${query}: ${error.message}`);
+  }
+}
+
 const uniqueBooks = new Map();
 for (const [index, item] of bestsellers.entries()) {
   const book = toBook(item, 'Aladin bestseller', index + 1);
@@ -77,8 +95,13 @@ for (const [index, item] of bestsellers.entries()) {
 for (const book of classicMatches) {
   if (!uniqueBooks.has(book.id)) uniqueBooks.set(book.id, book);
 }
+for (const book of broadMatches) {
+  if (!uniqueBooks.has(book.id) && uniqueBooks.size < catalogLimit) uniqueBooks.set(book.id, book);
+}
 
 const books = [...uniqueBooks.values()];
 mkdirSync('public/data', { recursive: true });
 writeFileSync('public/data/catalog.json', JSON.stringify({ updatedAt, books }, null, 2));
-console.log(`Saved ${books.length} records: ${bestsellers.length} bestsellers and ${classicMatches.length} classics.`);
+console.log(
+  `Saved ${books.length} records: ${bestsellers.length} bestsellers, ${classicMatches.length} classics, and ${broadMatches.length} broad search results.`,
+);
