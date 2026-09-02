@@ -3,10 +3,16 @@ import { join } from 'node:path';
 
 const appDir = join('android', 'app', 'src', 'main');
 const javaDir = join(appDir, 'java', 'com', 'meengook', 'bannap');
+const layoutDir = join(appDir, 'res', 'layout');
+const xmlDir = join(appDir, 'res', 'xml');
 mkdirSync(javaDir, { recursive: true });
-for (const name of ['BannapLockscreenPlugin.java', 'BannapLockscreenService.java']) {
+mkdirSync(layoutDir, { recursive: true });
+mkdirSync(xmlDir, { recursive: true });
+for (const name of ['BannapLockscreenPlugin.java', 'BannapLockscreenService.java', 'BannapWidgetProvider.java']) {
   copyFileSync(join('native', 'android', name), join(javaDir, name));
 }
+copyFileSync(join('native', 'android', 'bannap_widget.xml'), join(layoutDir, 'bannap_widget.xml'));
+copyFileSync(join('native', 'android', 'bannap_widget_info.xml'), join(xmlDir, 'bannap_widget_info.xml'));
 
 const mainActivity = join(javaDir, 'MainActivity.java');
 let main = readFileSync(mainActivity, 'utf8');
@@ -29,6 +35,9 @@ if (!manifest.includes('SYSTEM_ALERT_WINDOW')) {
 }
 if (!manifest.includes('BannapLockscreenService')) {
   manifest = manifest.replace('</application>', '        <service android:name=".BannapLockscreenService" android:exported="false" android:foregroundServiceType="dataSync" />\n    </application>');
+}
+if (!manifest.includes('BannapWidgetProvider')) {
+  manifest = manifest.replace('</application>', '        <receiver android:name=".BannapWidgetProvider" android:exported="false"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/bannap_widget_info" /></receiver>\n    </application>');
 }
 writeFileSync(manifestPath, manifest);
 

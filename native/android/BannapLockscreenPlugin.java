@@ -1,29 +1,19 @@
 package com.meengook.bannap;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.provider.Settings;
 
 import androidx.core.content.ContextCompat;
 
 import com.getcapacitor.JSObject;
-import com.getcapacitor.PermissionState;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
-import com.getcapacitor.annotation.Permission;
-import com.getcapacitor.annotation.PermissionCallback;
 
-@CapacitorPlugin(
-    name = "BannapLockscreen",
-    permissions = {
-        @Permission(alias = "notifications", strings = { Manifest.permission.POST_NOTIFICATIONS })
-    }
-)
+@CapacitorPlugin(name = "BannapLockscreen")
 public class BannapLockscreenPlugin extends Plugin {
     private static final String PREFS = "bannap_lockscreen";
     private static final String BOOKS_KEY = "books";
@@ -33,6 +23,7 @@ public class BannapLockscreenPlugin extends Plugin {
         String books = call.getString("books", "[]");
         getContext().getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .edit().putString(BOOKS_KEY, books).apply();
+        BannapWidgetProvider.refreshAll(getContext());
         call.resolve();
     }
 
@@ -47,16 +38,6 @@ public class BannapLockscreenPlugin extends Plugin {
 
     @PluginMethod
     public void enable(PluginCall call) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-            && getPermissionState("notifications") != PermissionState.GRANTED) {
-            requestPermissionForAlias("notifications", call, "afterNotificationPermission");
-            return;
-        }
-        openOverlaySettings(call);
-    }
-
-    @PermissionCallback
-    private void afterNotificationPermission(PluginCall call) {
         openOverlaySettings(call);
     }
 
@@ -72,10 +53,14 @@ public class BannapLockscreenPlugin extends Plugin {
             call.resolve(result);
             return;
         }
-        startService();
-        JSObject result = new JSObject();
-        result.put("enabled", true);
-        call.resolve(result);
+        try {
+            startService();
+            JSObject result = new JSObject();
+            result.put("enabled", true);
+            call.resolve(result);
+        } catch (Exception error) {
+            call.reject("LOCKSCREEN_SERVICE_START_FAILED: " + error.getMessage());
+        }
     }
 
     @PluginMethod
@@ -84,8 +69,12 @@ public class BannapLockscreenPlugin extends Plugin {
             call.reject("OVERLAY_PERMISSION_REQUIRED");
             return;
         }
-        startService();
-        call.resolve();
+        try {
+            startService();
+            call.resolve();
+        } catch (Exception error) {
+            call.reject("LOCKSCREEN_SERVICE_START_FAILED: " + error.getMessage());
+        }
     }
 
     @PluginMethod
