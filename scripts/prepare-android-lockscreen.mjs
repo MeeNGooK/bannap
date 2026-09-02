@@ -32,5 +32,21 @@ if (!manifest.includes('BannapLockscreenService')) {
 }
 writeFileSync(manifestPath, manifest);
 
+const gradlePath = join('android', 'app', 'build.gradle');
+let gradle = readFileSync(gradlePath, 'utf8');
+if (!gradle.includes('bannap-release.jks')) {
+  gradle = gradle.replace('android {', `android {
+    signingConfigs {
+        release {
+            storeFile file('bannap-release.jks')
+            storePassword System.getenv('BANNAP_KEYSTORE_PASSWORD')
+            keyAlias System.getenv('BANNAP_KEY_ALIAS')
+            keyPassword System.getenv('BANNAP_KEY_PASSWORD')
+        }
+    }`);
+  gradle = gradle.replace('release {', 'release {\n            signingConfig signingConfigs.release');
+  writeFileSync(gradlePath, gradle);
+}
+
 if (!existsSync(mainActivity)) throw new Error('Android MainActivity was not generated.');
 console.log('Prepared native lockscreen card sources.');
