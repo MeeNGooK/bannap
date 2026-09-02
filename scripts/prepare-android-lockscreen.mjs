@@ -18,7 +18,7 @@ const mainActivity = join(javaDir, 'MainActivity.java');
 let main = readFileSync(mainActivity, 'utf8');
 if (!main.includes('BannapLockscreenPlugin')) {
   main = main.replace('import com.getcapacitor.BridgeActivity;', 'import com.getcapacitor.BridgeActivity;\nimport com.meengook.bannap.BannapLockscreenPlugin;');
-  main = main.replace('public class MainActivity extends BridgeActivity {', 'public class MainActivity extends BridgeActivity {\n  @Override\n  public void onCreate(android.os.Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    registerPlugin(BannapLockscreenPlugin.class);\n  }');
+  main = main.replace('public class MainActivity extends BridgeActivity {', 'public class MainActivity extends BridgeActivity {\n  @Override\n  public void onCreate(android.os.Bundle savedInstanceState) {\n    registerPlugin(BannapLockscreenPlugin.class);\n    super.onCreate(savedInstanceState);\n  }');
   writeFileSync(mainActivity, main);
 }
 
