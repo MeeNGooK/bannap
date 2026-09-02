@@ -5,13 +5,21 @@ const appDir = join('android', 'app', 'src', 'main');
 const javaDir = join(appDir, 'java', 'com', 'meengook', 'bannap');
 const layoutDir = join(appDir, 'res', 'layout');
 const xmlDir = join(appDir, 'res', 'xml');
+const drawableDir = join(appDir, 'res', 'drawable');
 mkdirSync(javaDir, { recursive: true });
 mkdirSync(layoutDir, { recursive: true });
 mkdirSync(xmlDir, { recursive: true });
+mkdirSync(drawableDir, { recursive: true });
 for (const name of ['BannapLockscreenPlugin.java', 'BannapLockscreenService.java', 'BannapNotificationActionReceiver.java', 'BannapWidgetProvider.java']) {
   copyFileSync(join('native', 'android', name), join(javaDir, name));
 }
 copyFileSync(join('native', 'android', 'bannap_widget.xml'), join(layoutDir, 'bannap_widget.xml'));
+for (const name of ['bannap_notification_compact.xml', 'bannap_notification_expanded.xml']) {
+  copyFileSync(join('native', 'android', name), join(layoutDir, name));
+}
+for (const name of ['bannap_notification_surface.xml', 'bannap_notification_header.xml', 'bannap_notification_count.xml', 'bannap_notification_badge.xml', 'bannap_notification_row.xml']) {
+  copyFileSync(join('native', 'android', name), join(drawableDir, name));
+}
 copyFileSync(join('native', 'android', 'bannap_widget_info.xml'), join(xmlDir, 'bannap_widget_info.xml'));
 
 const mainActivity = join(javaDir, 'MainActivity.java');
