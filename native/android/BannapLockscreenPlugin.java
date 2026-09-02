@@ -62,6 +62,8 @@ public class BannapLockscreenPlugin extends Plugin {
 
     private void openOverlaySettings(PluginCall call) {
         if (!Settings.canDrawOverlays(getContext())) {
+            getContext().getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .edit().putBoolean("enabled", true).apply();
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                 Uri.parse("package:" + getContext().getPackageName()));
             getActivity().startActivity(intent);
