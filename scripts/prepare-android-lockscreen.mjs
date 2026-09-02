@@ -17,7 +17,7 @@ copyFileSync(join('native', 'android', 'bannap_widget.xml'), join(layoutDir, 'ba
 for (const name of ['bannap_notification_compact.xml', 'bannap_notification_expanded.xml']) {
   copyFileSync(join('native', 'android', name), join(layoutDir, name));
 }
-for (const name of ['bannap_notification_surface.xml', 'bannap_notification_header.xml', 'bannap_notification_count.xml', 'bannap_notification_badge.xml', 'bannap_notification_row.xml']) {
+for (const name of ['bannap_notification_surface.xml', 'bannap_notification_header.xml', 'bannap_notification_count.xml', 'bannap_notification_badge.xml', 'bannap_notification_row.xml', 'bannap_widget_surface.xml', 'bannap_widget_count.xml', 'bannap_widget_badge.xml', 'bannap_widget_row.xml']) {
   copyFileSync(join('native', 'android', name), join(drawableDir, name));
 }
 copyFileSync(join('native', 'android', 'bannap_widget_info.xml'), join(xmlDir, 'bannap_widget_info.xml'));
