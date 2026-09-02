@@ -36,7 +36,7 @@ public class BannapLockscreenService extends Service {
         if (!getSharedPreferences(PREFS, MODE_PRIVATE).getBoolean("enabled", false)) {
             stopSelf(); return START_NOT_STICKY;
         }
-        startForeground(NOTIFICATION_ID, notification());
+        startForeground(NOTIFICATION_ID, notification().build());
         return START_STICKY;
     }
 
