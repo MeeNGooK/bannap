@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -43,3 +43,12 @@ jobs:
           name: bannap-release-apk
           path: android/app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: apk-${{ github.run_number }}
+        run: >-
+          gh release create "$TAG" android/app/build/outputs/apk/release/app-release.apk#Bannap.apk
+          --repo "${{ github.repository }}"
+          --title "반납 Android APK #${{ github.run_number }}"
+          --generate-notes
