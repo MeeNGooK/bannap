@@ -44,7 +44,7 @@ if (!gradle.includes('bannap-release.jks')) {
             keyPassword System.getenv('BANNAP_KEY_PASSWORD')
         }
     }`);
-  gradle = gradle.replace('release {', 'release {\n            signingConfig signingConfigs.release');
+  gradle = gradle.replace(/(buildTypes\s*\{\s*release\s*\{)/, '$1\n            signingConfig signingConfigs.release');
   writeFileSync(gradlePath, gradle);
 }
 
