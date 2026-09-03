@@ -28,6 +28,8 @@ jobs:
       - run: pnpm exec cap add android
       - run: pnpm exec cap sync android
       - run: node scripts/prepare-android-lockscreen.mjs
+        env:
+          BANNAP_VERSION_CODE: ${{ github.run_number }}
       - name: Restore app signing key
         env:
           BANNAP_KEYSTORE_B64: ${{ secrets.BANNAP_KEYSTORE_B64 }}

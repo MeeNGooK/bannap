@@ -26,7 +26,7 @@ const mainActivity = join(javaDir, 'MainActivity.java');
 let main = readFileSync(mainActivity, 'utf8');
 if (!main.includes('BannapLockscreenPlugin')) {
   main = main.replace('import com.getcapacitor.BridgeActivity;', 'import com.getcapacitor.BridgeActivity;\nimport com.meengook.bannap.BannapLockscreenPlugin;');
-  main = main.replace('public class MainActivity extends BridgeActivity {', 'public class MainActivity extends BridgeActivity {\n  @Override\n  public void onCreate(android.os.Bundle savedInstanceState) {\n    registerPlugin(BannapLockscreenPlugin.class);\n    super.onCreate(savedInstanceState);\n  }');
+  main = main.replace('public class MainActivity extends BridgeActivity {', 'public class MainActivity extends BridgeActivity {\n  @Override\n  public void onCreate(android.os.Bundle savedInstanceState) {\n    registerPlugin(BannapLockscreenPlugin.class);\n    super.onCreate(savedInstanceState);\n    clearLegacyServiceWorker();\n  }\n\n  private void clearLegacyServiceWorker() {\n    getBridge().getWebView().postDelayed(() -> getBridge().getWebView().evaluateJavascript("navigator.serviceWorker&&navigator.serviceWorker.getRegistrations().then(function(registrations){return Promise.all(registrations.map(function(registration){return registration.unregister();})).then(function(){return registrations.length;});}).then(function(count){if(count){location.reload();}});", null), 600);\n  }');
   writeFileSync(mainActivity, main);
 }
 
@@ -53,6 +53,11 @@ writeFileSync(manifestPath, manifest);
 
 const gradlePath = join('android', 'app', 'build.gradle');
 let gradle = readFileSync(gradlePath, 'utf8');
+const versionCode = Number(process.env.BANNAP_VERSION_CODE);
+if (Number.isInteger(versionCode) && versionCode > 0) {
+  gradle = gradle.replace(/versionCode\s+\d+/, `versionCode ${versionCode}`);
+  gradle = gradle.replace(/versionName\s+"[^"]+"/, `versionName "1.0.${versionCode}"`);
+}
 if (!gradle.includes('bannap-release.jks')) {
   gradle = gradle.replace('android {', `android {
     signingConfigs {
