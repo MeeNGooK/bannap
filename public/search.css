@@ -14,3 +14,18 @@
 .brand-home h1{margin:3px 0 1px!important;font-size:32px!important}
 .brand-home:after{content:'⌂  홈으로';color:#75679e;font-size:10px;font-weight:800;letter-spacing:.2px}
 @media(max-width:420px){.brand-home{min-width:108px;padding:8px 10px 7px!important}.brand-home h1{font-size:28px!important}}
+
+/* Layout rhythm: keep navigation, cards, and actions visually separated. */
+.shell{padding-top:34px!important}
+header{gap:18px!important}
+.brand-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.mode-switch{margin:0!important}
+.header-actions{padding-top:4px!important;gap:9px!important}
+.summary{margin:30px 0 28px!important}
+.preview-wrap .section-head{padding-bottom:2px}
+.library-card{margin-top:29px!important}
+.lockscreen-card{margin-top:15px!important}
+.view-heading{margin:31px 0 21px!important}
+.filters{margin-bottom:21px!important}
+.dialog-actions{margin-top:8px!important}
+@media(max-width:420px){.shell{padding-top:27px!important}.brand-wrap{gap:10px}header{gap:10px!important}.header-actions{gap:6px!important}.summary{margin:24px 0 24px!important}.library-card{margin-top:24px!important}.lockscreen-card{margin-top:12px!important}}
