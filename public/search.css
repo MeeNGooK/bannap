@@ -1,5 +1,6 @@
 .book-suggestions:empty{display:none}
 .book-suggestions{display:grid;gap:5px;margin-top:-7px;padding:6px;background:#f6f3fc;border:1px solid #e6e0f2;border-radius:13px}
+.library-catalog-suggestions:empty{display:none}.library-catalog-suggestions{display:grid;gap:5px;margin-top:-7px;padding:6px;background:#f6f3fc;border:1px solid #e6e0f2;border-radius:13px}.library-catalog-suggestion{width:100%;display:flex;align-items:center;gap:9px;padding:8px;border:0;border-radius:9px;background:transparent;color:var(--ink);text-align:left;font:inherit;cursor:pointer;min-width:0}.library-catalog-suggestion:hover,.library-catalog-suggestion:focus{background:#fff;outline:none}
 .book-suggestion{width:100%;display:flex;align-items:center;gap:9px;padding:8px;border:0;border-radius:9px;background:transparent;color:var(--ink);text-align:left;font:inherit;cursor:pointer;min-width:0}
 .book-suggestion:hover,.book-suggestion:focus{background:#fff;outline:none}
 .suggestion-cover{width:27px;height:35px;flex:0 0 27px;display:grid;place-items:center;border-radius:5px;background:#6a5a9c;color:#fff;font-size:13px}
