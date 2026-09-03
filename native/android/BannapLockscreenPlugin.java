@@ -3,6 +3,8 @@ package com.meengook.bannap;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 
 import androidx.core.content.ContextCompat;
@@ -17,7 +19,8 @@ import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
 
 @CapacitorPlugin(name = "BannapLockscreen", permissions = {
-    @Permission(alias = "notifications", strings = { Manifest.permission.POST_NOTIFICATIONS })
+    @Permission(alias = "notifications", strings = { Manifest.permission.POST_NOTIFICATIONS }),
+    @Permission(alias = "location", strings = { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION })
 })
 public class BannapLockscreenPlugin extends Plugin {
     private static final String PREFS = "bannap_lockscreen";
@@ -67,6 +70,32 @@ public class BannapLockscreenPlugin extends Plugin {
         getContext().getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putBoolean("enabled", false).apply();
         getContext().stopService(new Intent(getContext(), BannapLockscreenService.class));
         call.resolve();
+    }
+
+    @PluginMethod
+    public void getLocation(PluginCall call) {
+        if (getPermissionState("location") != PermissionState.GRANTED) {
+            requestPermissionForAlias("location", call, "afterLocationPermission");
+            return;
+        }
+        resolveLocation(call);
+    }
+
+    @PermissionCallback
+    private void afterLocationPermission(PluginCall call) { resolveLocation(call); }
+
+    private void resolveLocation(PluginCall call) {
+        try {
+            LocationManager manager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+            Location location = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (location == null) location = manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (location == null) { call.reject("LOCATION_UNAVAILABLE"); return; }
+            JSObject result = new JSObject();
+            result.put("latitude", location.getLatitude());
+            result.put("longitude", location.getLongitude());
+            call.resolve(result);
+        } catch (SecurityException error) { call.reject("LOCATION_PERMISSION_DENIED"); }
+        catch (Exception error) { call.reject("LOCATION_UNAVAILABLE"); }
     }
 
     private void startService() {

@@ -37,6 +37,8 @@ if (!manifest.includes('SYSTEM_ALERT_WINDOW')) {
     '    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />',
     '    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />',
     '    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />',
+    '    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />',
+    '    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />',
   ].join('\n') + '\n\n';
   manifest = manifest.replace('<application', `${permissions}    <application`);
 }
