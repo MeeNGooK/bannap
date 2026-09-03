@@ -1,0 +1,26 @@
+name: Update neighborhood catalog
+
+on:
+  schedule:
+    - cron: '20 3 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/fetch-sgis-neighborhoods.mjs
+        env:
+          SGIS_SERVICE_ID: ${{ secrets.SGIS_SERVICE_ID }}
+          SGIS_SECURITY_KEY: ${{ secrets.SGIS_SECURITY_KEY }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update neighborhood catalog'
+          file_pattern: public/data/neighborhoods.json
