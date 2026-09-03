@@ -5,16 +5,26 @@ const securityKey = process.env.SGIS_SECURITY_KEY;
 if (!serviceId || !securityKey) throw new Error('SGIS_SERVICE_ID and SGIS_SECURITY_KEY are required');
 
 const api = 'https://sgisapi.mods.go.kr/OpenAPI3';
+const pause = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const request = async (path, params = {}) => {
   const url = new URL(`${api}${path}`);
   Object.entries(params).forEach(([key, value]) => {
     if (value !== undefined && value !== null && value !== '') url.searchParams.set(key, value);
   });
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`${path} failed: ${response.status}`);
-  const data = await response.json();
-  if (Number(data.errCd) !== 0) throw new Error(`${path} failed: ${data.errMsg || data.errCd}`);
-  return data.result;
+  let failure;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      const response = await fetch(url, { signal: AbortSignal.timeout(30000) });
+      if (!response.ok) throw new Error(`${path} failed: ${response.status}`);
+      const data = await response.json();
+      if (Number(data.errCd) !== 0) throw new Error(`${path} failed: ${data.errMsg || data.errCd}`);
+      return data.result;
+    } catch (error) {
+      failure = error;
+      if (attempt < 2) await pause(1500 * (attempt + 1));
+    }
+  }
+  throw failure;
 };
 
 const auth = await request('/auth/authentication.json', {
