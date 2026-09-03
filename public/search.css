@@ -8,3 +8,9 @@
 .suggestion-copy strong{font-size:12px}
 .suggestion-copy small{color:var(--muted);font-size:10px;font-weight:600}
 .suggestion-rank{flex:0 0 auto;color:#7869a8;font-size:10px;font-weight:800}
+
+.brand-home{position:relative;display:grid;justify-items:start;min-width:122px;padding:9px 12px 8px!important;border:1px solid #ded7ed!important;border-radius:16px!important;background:linear-gradient(145deg,#fff,#f7f4ff)!important;box-shadow:0 3px 10px #3b2f6f13;transition:transform .16s,box-shadow .16s}
+.brand-home:hover,.brand-home:focus-visible{transform:translateY(-1px);box-shadow:0 6px 15px #3b2f6f20;outline:none}
+.brand-home h1{margin:3px 0 1px!important;font-size:32px!important}
+.brand-home:after{content:'⌂  홈으로';color:#75679e;font-size:10px;font-weight:800;letter-spacing:.2px}
+@media(max-width:420px){.brand-home{min-width:108px;padding:8px 10px 7px!important}.brand-home h1{font-size:28px!important}}
