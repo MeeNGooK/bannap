@@ -27,13 +27,15 @@ const asArray = (value) => Array.isArray(value) ? value : [];
 const toNeighborhood = (item) => ({
   code: String(item.cd || ''),
   name: item.full_addr || item.addr_name || '',
+  x: Number(item.x_coor),
+  y: Number(item.y_coor),
 });
 
 const provinces = asArray(await stage());
 const districts = (await Promise.all(provinces.map(async (province) => asArray(await stage(province.cd))))).flat();
 const neighborhoods = (await Promise.all(districts.map(async (district) => asArray(await stage(district.cd))))).flat()
   .map(toNeighborhood)
-  .filter((item) => item.code.length >= 7 && item.name)
+  .filter((item) => item.code.length >= 7 && item.name && Number.isFinite(item.x) && Number.isFinite(item.y))
   .sort((a, b) => a.name.localeCompare(b.name, 'ko'));
 
 mkdirSync('public/data', { recursive: true });
