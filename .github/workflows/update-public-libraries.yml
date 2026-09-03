@@ -1,0 +1,25 @@
+name: Update public library catalog
+
+on:
+  schedule:
+    - cron: '40 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/fetch-public-libraries.mjs
+        env:
+          DATA4LIBRARY_AUTH_KEY: ${{ secrets.DATA4LIBRARY_AUTH_KEY }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update public library catalog'
+          file_pattern: public/data/libraries.json
