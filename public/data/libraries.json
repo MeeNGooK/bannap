@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T08:37:30.778Z",
+  "updatedAt": "2026-09-14T09:14:41.415Z",
   "source": "도서관정보나루",
   "libraries": [
     {
@@ -3115,6 +3115,14 @@
       "closed": "매주 토요일, 일요일 / 법정공휴일"
     },
     {
+      "code": "728222",
+      "name": "누리공원작은도서관",
+      "address": "인천광역시 연수구 송도문화로 20",
+      "tel": "032-812-7658",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
+    },
+    {
       "code": "141121",
       "name": "누리봄작은도서관",
       "address": "경기도 김포시 김포대로926번길 14, 2층",
@@ -4027,6 +4035,14 @@
       "closed": "매주 토요일, 일요일 / 관공서 공휴일"
     },
     {
+      "code": "128108",
+      "name": "동춘나래도서관",
+      "address": "인천광역시 연수구 봉재산로 54번길 30",
+      "tel": "032-749-8242",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
       "code": "142121",
       "name": "동해시립꿈빛마루도서관",
       "address": "강원특별자치도 동해시 천곡로 114",
@@ -4726,7 +4742,7 @@
       "code": "126152",
       "name": "부산광역시 금곡도서관",
       "address": "부산광역시 북구 효열로203번길 34",
-      "tel": "051-309-6181",
+      "tel": "051-309-6192",
       "homepage": "https://www.bsbukgu.go.kr/bglib/",
       "closed": "매주 월요일 / 국경일, 정부 지정 공휴일, 자료의 정리 점검 및 도서관의 시설 보수, 기타 관장이 필요하다고 인정할 시 임시 휴관"
     },
@@ -5670,7 +5686,7 @@
       "code": "141643",
       "name": "서농도서관",
       "address": "경기도 용인시 기흥구 서천서로 83",
-      "tel": "031-324-4533",
+      "tel": "031-6193-1530",
       "homepage": "https://lib.yongin.go.kr/seonong",
       "closed": "매월 첫째주, 셋째주 월요일"
     },
@@ -6080,6 +6096,14 @@
       "address": "서울특별시 영등포구 선유로 43가길 10-8",
       "tel": "02-2163-0800",
       "homepage": "https://www.ydplib.or.kr/sylib",
+      "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
+      "code": "128104",
+      "name": "선학별빛도서관",
+      "address": "인천광역시 연수구 넘말로 30",
+      "tel": "032-749-6710",
+      "homepage": "http://www.yspubliclib.go.kr",
       "closed": "매주 월요일 / 법정공휴일"
     },
     {
@@ -6507,12 +6531,60 @@
       "closed": "매월 첫째주, 셋째주 월요일 / 정부지정 공휴일, 특별한 사유로 관장이 필요하다고 인정한 경우"
     },
     {
+      "code": "728210",
+      "name": "솔안공원작은도서관",
+      "address": "인천광역시 연수구 원인재로 170",
+      "tel": "032-821-2005",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "128086",
+      "name": "송도2동작은도서관",
+      "address": "인천광역시 연수구 신송로 248, 4층",
+      "tel": "032-749-6595",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "728143",
+      "name": "송도3동작은도서관",
+      "address": "인천광역시 연수구 송도교육로 63, 2층",
+      "tel": "032-749-6797",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "728211",
+      "name": "송도5동작은도서관",
+      "address": "인천광역시 연수구 인천타워대로 501",
+      "tel": "032-721-6330",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
+    },
+    {
       "code": "328015",
       "name": "송도국제기구도서관",
       "address": "인천광역시 연수구 아트센터대로 175, 2층",
       "tel": "032-851-6650",
       "homepage": "https://www.incheonlib.go.kr/sio/main.do",
       "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "128121",
+      "name": "송도국제도서관",
+      "address": "인천광역시 연수구 아카데미로 166",
+      "tel": "032-749-8270",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
+      "code": "128047",
+      "name": "송도국제어린이",
+      "address": "인천광역시 연수구 컨벤시아대로 43",
+      "tel": "032-749-8220",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
     },
     {
       "code": "147109",
@@ -8147,6 +8219,30 @@
       "closed": "매주 토요일, 일요일"
     },
     {
+      "code": "128100",
+      "name": "연수1동작은도서관",
+      "address": "인천광역시 연수구 함박뫼로 127, 2층",
+      "tel": "032-749-6151",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "128115",
+      "name": "연수꿈담도서관",
+      "address": "인천광역시 연수구 먼우금로 164",
+      "tel": "032-749-8200",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
+      "code": "128058",
+      "name": "연수청학도서관",
+      "address": "인천광역시 연수구 솔샘로 146",
+      "tel": "032-749-6640",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
       "code": "147100",
       "name": "연일읍 미르작은도서관",
       "address": "경상북도 포항시 남구 연일읍 유강길10번길 49, 코아루1단지아파트",
@@ -8329,6 +8425,22 @@
       "tel": "061-363-1078",
       "homepage": "http://www.gokseong.go.kr/library/",
       "closed": "매주 월요일 / 일요일을 제외한 법정공휴일, 관장이 필요하다고 인정할 때"
+    },
+    {
+      "code": "128038",
+      "name": "옥련1동작은도서관",
+      "address": "인천광역시 연수구 비류대로 186번길 14, 2층",
+      "tel": "032-749-6026",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "128011",
+      "name": "옥련2동작은도서관",
+      "address": "인천광역시 연수구 옥련로 82번길, 5층",
+      "tel": "032-749-6084",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
     },
     {
       "code": "143005",
@@ -9104,7 +9216,7 @@
       "address": "경기도 이천시 설봉로81번길 50",
       "tel": "031-644-4351",
       "homepage": "http://www.icheonlib.go.kr/",
-      "closed": "매주 월요일 / 법정공휴일"
+      "closed": "매주 월요일 / 법정공휴일, 단 열람실은 신정, 설, 추석 연휴만 휴관"
     },
     {
       "code": "141594",
@@ -10912,7 +11024,7 @@
       "address": "충청북도 청주시 서원구 분평로 35",
       "tel": "043-201-4186",
       "homepage": "https://library.cheongju.go.kr/lib/front/",
-      "closed": "매주 금요일 / 관공서의 공휴일에 관한 규정이 정하는 공휴일 / 2026. 8. 15.(토), 2026. 8. 17.(월) 휴관"
+      "closed": "매주 금요일 / 관공서의 공휴일에 관한 규정이 정하는 공휴일 / 9/24~9/26 추석연휴 휴관, 10/3 개천절 휴관, 10/5 개천절 대체휴일 휴관"
     },
     {
       "code": "143022",
@@ -11103,7 +11215,7 @@
       "name": "충주시립도서관",
       "address": "충청북도 충주시 예성로 207",
       "tel": "043-850-3972",
-      "homepage": "https://lib.chungju.go.kr/web/index.do",
+      "homepage": "https://lib.chungju.go.kr/lib/web/index.do",
       "closed": "매주 월요일 / 관공서의 공휴일에 관한 규정이 정하는 공휴일"
     },
     {
@@ -11576,7 +11688,7 @@
       "address": "경기도 파주시 교하로 239",
       "tel": "031-940-5007",
       "homepage": "https://lib.paju.go.kr/hulib",
-      "closed": "현재 리모델링 공사로 휴관중(2026.5.18.(월) ~ 8. 30.(일), 재개관일: 2026. 8. 31.(월))"
+      "closed": "매주 금요일 / 법정공휴일"
     },
     {
       "code": "141326",
@@ -12123,6 +12235,14 @@
       "closed": "매주 토요일, 일요일 / 법정공휴일"
     },
     {
+      "code": "128109",
+      "name": "함박비류도서관",
+      "address": "인천광역시 연수구 함박안로 217",
+      "tel": "032-749-6970",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
       "code": "148182",
       "name": "함안군립칠원도서관",
       "address": "경상남도 함안군 칠원읍 원서로 56",
@@ -12169,6 +12289,14 @@
       "tel": "054-282-9896",
       "homepage": "http://phlib.pohang.go.kr/",
       "closed": "매주 월요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "128099",
+      "name": "해돋이도서관",
+      "address": "인천광역시 연수구 해돋이로 7",
+      "tel": "032-749-6950",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
     },
     {
       "code": "146069",
@@ -12233,6 +12361,14 @@
       "tel": "02-714-8080",
       "homepage": "https://mplib.mapo.go.kr/libsmall/",
       "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "728220",
+      "name": "해찬솔공원작은도서관",
+      "address": "인천광역시 연수구 송도과학로27번길 74",
+      "tel": "032-818-6313",
+      "homepage": "http://www.yspubliclib.go.kr",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
     },
     {
       "code": "14703801",
