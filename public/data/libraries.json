@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T09:20:18.012Z",
+  "updatedAt": "2026-11-02T11:39:23.807Z",
   "source": "도서관정보나루",
   "libraries": [
     {
@@ -329,6 +329,14 @@
       "tel": "02-478-9656",
       "homepage": "https://www.gdlibrary.or.kr/hg/main",
       "closed": "매주 화요일 / 법정공휴일(일요일 제외)"
+    },
+    {
+      "code": "747019",
+      "name": "강동꿈마루작은도서관",
+      "address": "경상북도 경주시 강동면 강동로 17, 1층",
+      "tel": "054-779-8917",
+      "homepage": "https://library.gyeongju.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
     },
     {
       "code": "111546",
@@ -809,6 +817,14 @@
       "tel": "031-369-5700",
       "homepage": "https://lib.goe.go.kr/hs/",
       "closed": "매주 월요일 / 법정 공휴일"
+    },
+    {
+      "code": "141674",
+      "name": "경기도서관",
+      "address": "경기도 수원시 영통구 도청로 40",
+      "tel": "031-8008-5300",
+      "homepage": "https://www.library.kr",
+      "closed": "매월 둘째, 넷째 월요일 / 신정, 명정 당일(구정, 추석), 임시 휴관일"
     },
     {
       "code": "148308",
@@ -2651,6 +2667,14 @@
       "closed": "매월 세번째 월요일 / 법정공휴일(임시공휴일 포함)"
     },
     {
+      "code": "148324",
+      "name": "김해어린이영어도서관",
+      "address": "경상남도 김해시 부곡로 57",
+      "tel": "055-350-0491",
+      "homepage": "https://lib.gimhae.go.kr/",
+      "closed": "매월 첫번째 월요일 / 법정공휴일"
+    },
+    {
       "code": "148309",
       "name": "김해율하도서관",
       "address": "경상남도 김해시 율하2로 210",
@@ -4385,6 +4409,14 @@
       "tel": "02-2629-8600",
       "homepage": "https://www.ydplib.or.kr/mllib",
       "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
+      "code": "147128",
+      "name": "문무대왕꿈마루작은도서관",
+      "address": "경상북도 경주시 문무대왕면 감은로 17, 3층",
+      "tel": "054-745-2121",
+      "homepage": "https://library.gyeongju.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
     },
     {
       "code": "111279",
@@ -7715,6 +7747,14 @@
       "closed": ""
     },
     {
+      "code": "732228",
+      "name": "안성미양작은도서관",
+      "address": "경기도 안성시 미양면 양지길 29, 2층",
+      "tel": "031-678-0722",
+      "homepage": "https://www.anseong.go.kr/library",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
+    },
+    {
       "code": "141291",
       "name": "안성부영작은도서관",
       "address": "경기도 안성시 공도읍 만수로 31, 부영아파트 관리사무소 2층",
@@ -7729,6 +7769,14 @@
       "tel": "031-671-7940",
       "homepage": "http://www.apl.go.kr/",
       "closed": "매주 일요일 / 법정공휴일"
+    },
+    {
+      "code": "732230",
+      "name": "안성서운작은도서관",
+      "address": "경기도 안성시 서운면 서운중앙길 23",
+      "tel": "031-78-0727",
+      "homepage": "https://www.anseong.go.kr/library",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
     },
     {
       "code": "141292",
@@ -7785,6 +7833,22 @@
       "tel": "031-678-4090",
       "homepage": "http://www.apl.go.kr/",
       "closed": "매주 월요일 / 일요일을 제외한 법정공휴일(단, 일요일과 공휴일이 겹칠시에는 휴관)"
+    },
+    {
+      "code": "732227",
+      "name": "안성양성작은도서관",
+      "address": "경기도 안성시 양성면 읍내길 21",
+      "tel": "031-678-0721",
+      "homepage": "https://www.anseong.go.kr/library",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "732229",
+      "name": "안성원곡작은도서관",
+      "address": "경기도 안성시 원곡면 가천중앙1길 46",
+      "tel": "031-678-0724",
+      "homepage": "https://www.anseong.go.kr/library",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
     },
     {
       "code": "141295",
@@ -7937,6 +8001,14 @@
       "tel": "052-290-4170",
       "homepage": "http://lib.junggu.ulsan.kr/",
       "closed": "매주 월요일 / 법정공휴일, 특별한 사유로 관장이 공고한 날"
+    },
+    {
+      "code": "147114",
+      "name": "양남꿈마루작은도서관",
+      "address": "경상북도 경주시 양남면 죽전안길 27-3, 2층",
+      "tel": "054-741-0130",
+      "homepage": "https://library.gyeongju.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
     },
     {
       "code": "148304",
@@ -8281,6 +8353,14 @@
       "tel": "02-2116-2609",
       "homepage": "https://www.nowonlib.kr/",
       "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
+      "code": "141663",
+      "name": "영덕도서관",
+      "address": "경기도 용인시 기흥구 덕영대로2077번길 7",
+      "tel": "031-6193-1550",
+      "homepage": "https://lib.yongin.go.kr/yeongdeok",
+      "closed": "매월 첫번째, 세번째 월요일 / 법정공휴일"
     },
     {
       "code": "143004",
@@ -9343,6 +9423,14 @@
       "name": "인천 서구 단봉늘봄도서관",
       "address": "인천광역시 서구 오동로 25",
       "tel": "032-251-7410",
+      "homepage": "https://www.issl.go.kr",
+      "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
+      "code": "128122",
+      "name": "인천 서구 아라누리도서관",
+      "address": "인천광역시 서구 이음2로 20",
+      "tel": "032-580-1150",
       "homepage": "https://www.issl.go.kr",
       "closed": "매주 월요일 / 법정공휴일"
     },
@@ -11261,8 +11349,8 @@
     {
       "code": "143026",
       "name": "충주시립호암도서관",
-      "address": "충청북도 충주시 중원대로 3324",
-      "tel": "043-850-7410",
+      "address": "충청북도 충주시 호암중앙1로 35",
+      "tel": "043-850-3960",
       "homepage": "https://lib.chungju.go.kr/web/index.do",
       "closed": "매주 금요일 / 법정공휴일"
     },
@@ -12160,7 +12248,7 @@
       "address": "대구광역시 북구 사수동 811, 한강공원 일원",
       "tel": "053-320-5199",
       "homepage": "https://library.daegu.go.kr/bukgs",
-      "closed": "매주 토요일, 일요일 / 법정공휴일"
+      "closed": "법정공휴일"
     },
     {
       "code": "711401",
@@ -12459,6 +12547,14 @@
       "closed": "매주 일요일 / 법정공휴일"
     },
     {
+      "code": "147139",
+      "name": "현곡꿈마루작은도서관",
+      "address": "경상북도 경주시 현곡면 용담로 311, 1층",
+      "tel": "054-779-8959",
+      "homepage": "https://library.gyeongju.go.kr",
+      "closed": "매주 토요일, 일요일 / 법정공휴일"
+    },
+    {
       "code": "741348",
       "name": "호법작은도서관",
       "address": "경기도 이천시 호법면 이섭대천로527번길 27",
@@ -12497,6 +12593,14 @@
       "tel": "02-973-1318",
       "homepage": "https://nowonlib.kr/hwarang",
       "closed": "매주 월요일 / 법정공휴일"
+    },
+    {
+      "code": "747074",
+      "name": "화랑마을꿈마루작은도서관",
+      "address": "경상북도 경주시 석현로 123, 1층",
+      "tel": "054-760-2450",
+      "homepage": "https://library.gyeongju.go.kr",
+      "closed": "매주 월요일, 일요일 / 법정공휴일"
     },
     {
       "code": "141283",
